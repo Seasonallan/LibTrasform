@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation gradleApi()//gradle sdk
+    implementation localGroovy()//groovy sdk
+
+    implementation 'com.android.tools.build:gradle:3.3.2'
+  //  implementation 'org.javassist:javassist:3.27.0-GA'//用于编辑class文件
+}
+
+
+repositories {
+    jcenter()
+    google()
+}
+
+//提交仓库到本地目录
+def version = "1.0.0";
+def artifactId = "testplugin";
+def groupId = "com.example.plugin.test";
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('./repo')) {
+                pom.groupId = groupId
+                pom.artifactId = artifactId
+                pom.version = version
+            }
+        }
+    }
+}
+
