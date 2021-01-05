@@ -17,9 +17,11 @@ public class TimeManager {
         endTimeMap.put(key, time);
     }
 
-    public static void calcuteTime(String key) {
+    public static void calculateTime(String key) {
         long startTime = startTimeMap.get(key);
         long endTime = endTimeMap.get(key);
-        System.out.println(key + "======time:" + (endTime - startTime));
+        System.out.println(key + "======time(纳秒):" + (endTime - startTime)
+                + " ≈ " +(endTime - startTime)/1000 + "微秒"
+                + " ≈ " +(endTime - startTime)/1000000 + "毫秒");
     }
 }

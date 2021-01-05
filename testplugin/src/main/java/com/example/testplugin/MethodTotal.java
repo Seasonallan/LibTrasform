@@ -41,6 +41,7 @@ public class MethodTotal extends ClassVisitor {
                     mv.visitVarInsn(ALOAD, 1);
                     mv.visitMethodInsn(INVOKESTATIC, "java/lang/System", "nanoTime", "()J", false);
                     mv.visitMethodInsn(INVOKESTATIC, "com/example/testplugin/TimeManager", "addStartTime", "(Ljava/lang/String;J)V", false);
+
                 }
             }
 
@@ -52,7 +53,7 @@ public class MethodTotal extends ClassVisitor {
                     mv.visitMethodInsn(INVOKESTATIC, "com/example/testplugin/TimeManager", "addEndTime", "(Ljava/lang/String;J)V", false);
 
                     mv.visitVarInsn(ALOAD, 1);
-                    mv.visitMethodInsn(INVOKESTATIC, "com/example/testplugin/TimeManager", "calcuteTime", "(Ljava/lang/String;)V", false);
+                    mv.visitMethodInsn(INVOKESTATIC, "com/example/testplugin/TimeManager", "calculateTime", "(Ljava/lang/String;)V", false);
                 }
             }
         };
